@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6544274123900696664}
   - component: {fileID: 7763928426141210130}
   - component: {fileID: 7513459718827306470}
-  - component: {fileID: 8492350585331335091}
+  - component: {fileID: 4226249073941888239}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -112,7 +112,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &8492350585331335091
+--- !u!54 &4226249073941888239
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +149,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5617443898012731527}
   - component: {fileID: 8986360951632326919}
-  - component: {fileID: 3259794790202638724}
   - component: {fileID: 8033242685054371066}
   m_Layer: 0
   m_Name: FallTrigger
@@ -194,33 +193,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3259794790202638724
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7068384830464797122}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &8033242685054371066
 MonoBehaviour:
   m_ObjectHideFlags: 0
