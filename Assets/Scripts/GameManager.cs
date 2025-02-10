@@ -8,16 +8,34 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float score = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
-    private FallTrigger[] pins;
+    private FallTrigger[] fallTriggers;
+
+    private GameObject pinObjects;
+
+    //A reference to our ball controller
+    [SerializeField] private BallController ball;
+
+    //A reference to our pincollection prefab
+    [SerializeField] private GameObject pinCollection;
+
+    //a reference for empty game object to spawn pin collection prefab
+    [SerializeField] private Transform pinAnchor;
+
+    //A reference to our input manager
+    [SerializeField] private InputManager inputManager;
 
     void Start()
     {
-        pins = FindObjectsByType<FallTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        //fallTriggers = FindObjectsByType<FallTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
-        foreach (FallTrigger pin in pins)
-        {
-            pin.OnPinFall.AddListener(IncrementScore);
-        }
+        //foreach (FallTrigger pin in fallTriggers)
+        //{
+        //    pin.OnPinFall.AddListener(IncrementScore);
+        //}
+
+        //adding handlerest function as listener to new event
+        inputManager.OnResetPressed.AddListener(HandleReset);
+        SetPins();
 
         
     }
@@ -28,9 +46,42 @@ public class GameManager : MonoBehaviour
         scoreText.text = $"Score: {score}";
     }
 
+    private void HandleReset()
+    {
+        ball.ResetBall();
+        SetPins();
+    }
+
+    private void SetPins()
+    {
+        //first check that all prev pins have been destroyed so we dont create more on top
+
+        if (pinObjects)
+        {
+            foreach (Transform child in pinObjects.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            Destroy(pinObjects);
+        }
+
+        //then instantiate new set of pins to our pin anchor transform
+        pinObjects = Instantiate(pinCollection, pinAnchor.transform.position, Quaternion.identity, transform);
+
+        //we add increment score function as listener to the onpinfall event
+        fallTriggers = FindObjectsByType<FallTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        foreach (FallTrigger pin in fallTriggers)
+        {
+            pin.OnPinFall.AddListener(IncrementScore);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         
     }
+
+
 }
