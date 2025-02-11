@@ -40,6 +40,7 @@ public class BallController : MonoBehaviour
         launchIndicator.gameObject.SetActive(true);
         transform.parent = ballAnchor;
         transform.localPosition = Vector3.zero;
+
     }
 
     private void LaunchBall()
