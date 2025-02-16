@@ -48,8 +48,9 @@ public class GameManager : MonoBehaviour
 
     private void HandleReset()
     {
-        ball.ResetBall();
         SetPins();
+        ball.ResetBall();
+        
     }
 
     private void SetPins()
@@ -77,11 +78,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
 
 }
