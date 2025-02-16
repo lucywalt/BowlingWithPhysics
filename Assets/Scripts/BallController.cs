@@ -48,13 +48,14 @@ public class BallController : MonoBehaviour
         if (isBallLaunched)
             return;
         isBallLaunched = true;
+        ballRB.isKinematic = false;
 
         transform.parent = null;
         //this sets the object to the outermost layer of the hierarchy
         ballRB.AddForce(launchIndicator.forward * force, ForceMode.Impulse);
         launchIndicator.gameObject.SetActive(false);
-        ballRB.isKinematic = false;
-        ballRB.AddForce(transform.forward * force, ForceMode.Impulse);
+       
+     //   ballRB.AddForce(transform.forward * force, ForceMode.Impulse);
     }
 
     // Update is called once per frame
